@@ -1,6 +1,7 @@
+<?php include("admin/db.php");?>
 <!doctype html>
 <html lang="en">
-
+<?php $contact_info=mysqli_fetch_array(mysqli_query($conn,"SELECT enquiryemail,admin_mobile,admin_addr1,admin_addr2,footer_msg,facebook,youtube,pinterest,instagram,linkedin,twitter FROM admin_profile WHERE admin_id='5'"));?>
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">

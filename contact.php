@@ -20,7 +20,7 @@
           </h6>
           <p class=" wow bounceInDown" data-wow-duration="1s">
             <a class="text-gray-300">
-              16/64, Thambiah road, West Mambalam, T Nagar, Chennai 600-033
+            <?=$contact_info['admin_addr1'].$contact_info['admin_addr2'];?>
             </a>
           </p>
 
@@ -32,7 +32,7 @@
             <i class="fe fe-phone color-3 mr-4"></i> Call to Us:
           </h6>
           <p class=" wow bounceInDown" data-wow-duration="1s">
-            <a class="text-gray-300" href="tel:9790133998">+91 9790133998</a>
+            <a class="text-gray-300" href="tel:<?=$contact_info['admin_mobile'];?>"><?=$contact_info['admin_mobile'];?></a>
           </p>
 
           <!-- Divider -->
@@ -43,7 +43,7 @@
             <i class="fe fe-mail color-3 mr-4"></i> Write to Us:
           </h6>
           <p class=" wow bounceInDown" data-wow-duration="1s">
-            <a class="text-gray-300" href="mailto:ithinkcreations@gmail.com">ithinkcreations@gmail.com</a>
+            <a class="text-gray-300" href="mailto:<?=$contact_info['enquiryemail'];?>"><?=$contact_info['enquiryemail'];?></a>
           </p>
 
           <!-- Divider -->
@@ -54,15 +54,36 @@
             <i class="fe fe-globe color-3 mr-4"></i> Social Media:
           </h6>
           <p class=" wow bounceInDown" data-wow-duration="1s">
-            <a class="text-white pl-2 bl" href="https://www.facebook.com/ithinkcreations/" target="blank">
+          <?php if($contact_info['facebook']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['facebook'];?>" target="blank">
               <i class="fab fa-facebook"></i>
             </a>
-            <a class="text-white pl-2 bl" href="https://www.instagram.com/ithinkcreations/" target="blank">
+          <?php } ?>
+          <?php if($contact_info['instagram']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['instagram'];?>" target="blank">
               <i class="fab fa-instagram"></i>
             </a>
-            <a class="text-white pl-2 bl" href="https://www.linkedin.com/company/ithinkcreations/" target="blank">
+          <?php } ?>
+          <?php if($contact_info['linkedin']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['linkedin'];?>" target="blank">
               <i class="fab fa-linkedin"></i>
             </a>
+          <?php } ?>
+          <?php if($contact_info['pinterest']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['pinterest'];?>" target="blank">
+              <i class="fab fa-pinterest"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['youtube']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['youtube'];?>" target="blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['twitter']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['twitter'];?>" target="blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          <?php } ?>
           </p>
 
           <!-- <p class="mb-0">

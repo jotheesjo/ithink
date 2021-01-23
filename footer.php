@@ -109,7 +109,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="blog.php">
+              <a class="color-2" href="contact.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Contact Us
@@ -175,28 +175,36 @@
           <h4 class="text-white wow bounceInLeft" data-wow-delay=".0s">
             Follow Us
           </h4>
-          <a class="text-white pl-2 bl" href="https://www.facebook.com/ithinkcreations/" target="blank">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a class="text-white pl-2 bl" href="https://www.instagram.com/ithinkcreations/" target="blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a class="text-white pl-2 bl" href="https://www.linkedin.com/company/ithinkcreations/" target="blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          
-          <a class="text-white pl-2 bl" href="https://www.pinterest.com/ithinkcreations/" target="blank">
-            <i class="fab fa-pinterest"></i>
-          </a>
-          <a class="text-white pl-2 bl" href="https://www.youtube.com/ithinkcreations/" target="blank">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a class="text-white pl-2 bl" href="https://www.twitter.com/ithinkcreations/" target="blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a class="text-white pl-2 bl" href="https://www.google.com/ithinkcreations/" target="blank">
-            <i class="fab fa-google"></i>
-          </a>
+          <?php if($contact_info['facebook']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['facebook'];?>" target="blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['instagram']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['instagram'];?>" target="blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['linkedin']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['linkedin'];?>" target="blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['pinterest']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['pinterest'];?>" target="blank">
+              <i class="fab fa-pinterest"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['youtube']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['youtube'];?>" target="blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          <?php } ?>
+          <?php if($contact_info['twitter']!=''){ ?>
+            <a class="text-white pl-2 bl" href="<?=$contact_info['twitter'];?>" target="blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          <?php } ?>
           
 
         </div>
