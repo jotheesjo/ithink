@@ -145,31 +145,8 @@ $desc=mysqli_real_escape_string($conn,$_POST['description']);
 
 }
 
-if(isset($_POST['insert_service'])){
-    if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
-      $file_name = $_FILES['photo']['name'];
-      $file_size =$_FILES['photo']['size'];
-      $file_tmp =$_FILES['photo']['tmp_name'];
-      $file_type=$_FILES['photo']['type'];
-        $tmp_explode=explode('.',$file_name);
-      $file_ext=strtolower(end($tmp_explode));
-      $extensions= array("jpeg","jpg","png");
-    if(in_array($file_ext,$extensions)=== false){
-         header("Location:add-services.php?msg=File type not support");
-        exit();
-      }elseif($file_size > 2097152){
-        header("Location:add-services.php?msg=File size should be lessthan 2MB");
-        exit();
-      }else{
-        $rand=rand(0,1000);
-        $filename="invicts-".$rand.'-'.$file_name;
-        $filepath="../images/service/".$filename;
-         move_uploaded_file($file_tmp,$filepath);
-    }
-    }else{
-        $filename="noimg.png";
-    }
-    $ins=mysqli_query($conn,"INSERT INTO services (title,description,status,image,date) VALUES('$_POST[title]','$_POST[description]','$_POST[status]','$filename',NOW())");
+if(isset($_POST['insert_service_list'])){
+    $ins=mysqli_query($conn,"INSERT INTO services (name,description,status,date) VALUES('$_POST[name]','$_POST[description]',NOW())");
     if($ins){
         header("Location:add-services.php?msg=Services created successfully");
         exit();
