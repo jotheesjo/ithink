@@ -25,13 +25,7 @@
                             <p class="text-white font-weight-light">
                                 <?=$blogrow['blog'];?>
                             </p>
-                            <a href="<?=MAINURL.'blog/'.$blogrow['slug'];?>">
-                                <h3 class="mb-0 text-white font-weight-bold">
-                                    Read More
-                                </h3>
-                            </a>
-
-                            <h6 class="text-white  font-weight-light">
+                           <h6 class="text-white  font-weight-light">
                                 <small>
                                     <?php echo date('d/M/Y',strtotime($blogrow['time']));?>
                                 </small>
