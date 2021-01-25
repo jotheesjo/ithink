@@ -1,9 +1,5 @@
 <?php include("header.php");
-include("aside.php");
-$country=mysqli_query($conn,"SELECT * FROM countries");
-$states=mysqli_query($conn,"SELECT * FROM countries_states WHERE country_id='101'");
-$cities=mysqli_query($conn,"SELECT * FROM countries_cities WHERE state_id='35'");
-?>
+include("aside.php"); ?>
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
@@ -17,7 +13,7 @@ $cities=mysqli_query($conn,"SELECT * FROM countries_cities WHERE state_id='35'")
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">ADD EMPLOYEE</h4>
+                        <h4 class="text-themecolor">ADD BLOG</h4>
                     </div>
                 </div>
                 <!-- ============================================================== -->

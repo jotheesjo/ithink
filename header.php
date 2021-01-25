@@ -14,18 +14,18 @@
   </title>
 
   <!-- Libs CSS -->
-  <link rel="stylesheet" href="libs/flickity/flickity.min.css">
-  <link rel="stylesheet" href="libs/swiper/swiper.min.css">
-  <link rel="stylesheet" href="libs/fancybox/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="libs/fortawesome/css/all.min.css">
-  <link rel="stylesheet" href="libs/simplebar/simplebar.min.css">
-  <link rel="stylesheet" href="libs/highlightjs/styles/vs2015.css">
-  <link rel="stylesheet" href="libs/wow/wow.min.css">
-  <link rel="stylesheet" href="fonts/feather/feather.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/flickity/flickity.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/swiper/swiper.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/fancybox/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/fortawesome/css/all.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/simplebar/simplebar.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/highlightjs/styles/vs2015.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>libs/wow/wow.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>fonts/feather/feather.css">
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" href="css/dan.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>css/dan.min.css">
+  <link rel="stylesheet" href="<?=MAINURL;?>css/style.css">
 
   <style>
     .dropdown-toggle[data-toggle="collapse"]::after {
@@ -45,7 +45,7 @@
 
         <!-- Close -->
         <button type="button" class="close text-black" data-dismiss="modal" aria-label="Close">
-          <img src="img/x.svg" alt="" class="w-75">
+          <img src="<?=MAINURL;?>img/x.svg" alt="" class="w-75">
         </button>
 
         <!-- Body -->
@@ -55,13 +55,13 @@
           <ul class="nav nav-vertical nav-unstyled font-size-h2" id="sidebarNav">
 
             <li class="nav-item wow bounceInLeft" data-wow-duration="1s">
-              <a class="nav-link text-white" href="index.php">Home</a>
+              <a class="nav-link text-white" href="<?=MAINURL;?>index.php">Home</a>
             </li>
             <li class="nav-item wow bounceInLeft" data-wow-duration="1.2s">
-              <a class="nav-link text-white" href="about.php">About Us</a>
+              <a class="nav-link text-white" href="<?=MAINURL;?>about.php">About Us</a>
             </li>
             <li class="nav-item wow bounceInLeft" data-wow-duration="1.4s">
-              <a class="nav-link text-white" href="clients.php">Clients</a>
+              <a class="nav-link text-white" href="<?=MAINURL;?>clients.php">Clients</a>
             </li>
 
             <li class="nav-item wow bounceInLeft" data-wow-duration="1.6s">
@@ -71,31 +71,31 @@
               <div class="collapse" id="sidebarBlog" data-parent="#sidebarNav">
                 <ul class="list-styled font-size-lg py-3 mb-0">
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1s">
-                    <a class="list-styled-link text-white" href="wedding.php">Wedding</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>wedding.php">Wedding</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.1s">
-                    <a class="list-styled-link text-white" href="birthday-kids.php">Birthday & Kids</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>birthday-kids.php">Birthday & Kids</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.2s">
-                    <a class="list-styled-link text-white" href="commercial-photos.php">Commercial Photos</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>commercial-photos.php">Commercial Photos</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.3s">
-                    <a class="list-styled-link text-white" href="business-videos.php">Business Videos</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>business-videos.php">Business Videos</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.4s">
-                    <a class="list-styled-link text-white" href="presentations.php">Presentations</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>presentations.php">Presentations</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.5s">
-                    <a class="list-styled-link text-white" href="creatives.php">Creatives</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>creatives.php">Creatives</a>
                   </li>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.6s">
-                    <a class="list-styled-link text-white" href="articles.php">Articles</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL;?>articles.php">Articles</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="nav-item wow bounceInLeft" data-wow-duration="1.8s">
-              <a class="nav-link text-white" href="contact.php">Book Us Now</a>
+              <a class="nav-link text-white" href="<?=MAINURL;?>contact.php">Book Us Now</a>
             </li>
           </ul>
 
@@ -109,12 +109,12 @@
 
       <!-- Brand -->
       <a class="navbar-brand animated bounceInLeft fast wow bounceInLeft" data-wow-duration="1s" href="index.php">
-        <img src="img/logo.png" alt="" class="w-100">
+        <img src="<?=MAINURL;?>img/logo.png" alt="" class="w-100">
       </a>
 
       <!-- Toggler -->
       <button class="navbar-toggler d-block ml-7 wow bounceInRight" data-wow-duration="1s" type="button" data-toggle="modal" data-target="#modalSidebar">
-        <img src="img/list.svg" alt="" class="w-75">
+        <img src="<?=MAINURL;?>img/list.svg" alt="" class="w-75">
       </button>
 
     </div>

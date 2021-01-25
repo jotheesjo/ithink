@@ -156,6 +156,31 @@ if(isset($_POST['update_video_testimonial'])){
   }
 }
 
+//update blog
+if(isset($_POST['update_blog'])){
+  $shortblog=mysqli_real_escape_string($conn,$_POST['shortblog']);
+  $blog=mysqli_real_escape_string($conn,$_POST['blog']);
+  $slug=mysqli_real_escape_string($conn,$_POST['slug']);
+   $TotalUploadedFiles=count($_FILES['file_img']['name']);
+         if($_FILES['file_img']['name'][0]!='')
+  {
+      for($i = 0; $i < $TotalUploadedFiles; $i++){
+        $filetmp = $_FILES["file_img"]["tmp_name"][$i];
+      $filename = $_FILES["file_img"]["name"][$i];
+      $filetype = $_FILES["file_img"]["type"][$i];
+      $filepath = "../img/blogs/".$filename;
+    $filepath2 = "img/blogs/".$filename;
+    move_uploaded_file($filetmp,$filepath);
+   }
+  }else{
+      $filepath2=$_POST['image'];
+    }
+   $upcat =mysqli_query($conn,"update blog set path='$filepath2',title='$_POST[title]',blog='$blog',shortblog='$shortblog',slug='$slug' where id='$_POST[id]'");
+  
+       echo ("<SCRIPT LANGUAGE='JavaScript'>
+      window.location.href='blogs.php?msg=blog Updated Successfully';
+      </SCRIPT>");
+  }
 // update services
 if(isset($_POST['update_service'])){
     if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){

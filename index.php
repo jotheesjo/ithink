@@ -314,6 +314,9 @@
             
                 <div class="row">
                     <div class="col-12 text-uppercase">
+                   
+                    <div class="row" id="instagrampostlist"></div>
+
                     <div data-flickity='{"pageDots": false, "autoPlay": 2000, "wrapAround": true, "prevNextButtons": false}'>
                         <div class="col-md-3">
                             <img src="img/social-1.png" alt="" class="w-100">
@@ -363,84 +366,37 @@
         </p>
 
         <!-- Slider -->
-        <div class="flickity-buttons-bottom-left wow bounceInDown" data-wow-duration="1s" data-flickity='{"prevNextButtons": true,"autoPlay": 1500}'>
+        <div class="flickity-buttons-bottom-left wow bounceInDown" data-wow-duration="1s"
+                    data-flickity='{"prevNextButtons": true,"autoPlay": 1500}'>
+                    <?php $testimonial = mysqli_query($conn, "SELECT * FROM testimonial WHERE status='1'");
+            while ($testimonialrow = mysqli_fetch_array($testimonial)) { ?>
 
 
-          <div class="text-justify w-100">
-            <div class="card">
-              <div class="row p-8" style="background-color: #212121;">
-                <div class="col-md-5">
-                  <img src="img/people-img.png" alt="" class="w-100">
+                    <div class="text-justify w-100">
+                        <div class="card">
+                            <div class="row p-8" style="background-color: #212121;">
+                                <div class="col-md-5">
+                                    <img src="img/testimonial/<?=$testimonialrow['image'];?>" alt="" class="w-100">
+                                </div>
+                                <div class="col-md-7 text-left m-auto">
+                                    <img src="img/people-q.jpg" alt="" class="img-fluid">
+                                    <p class="text-white font-weight-light">
+                                        <?=$testimonialrow['description'];?>
+                                    </p>
+                                    <h3 class="mb-0 text-white font-weight-bold">
+                                        <?=$testimonialrow['name'];?>
+                                    </h3>
+                                    <h6 class="text-white  font-weight-light">
+                                        <small>
+                                            <?=$testimonialrow['designation'];?>
+                                        </small>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
-                <div class="col-md-7 text-left m-auto">
-                  <img src="img/people-q.jpg" alt="" class="img-fluid">
-                  <p class="text-white font-weight-light">
-                    Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a ijutsnti diam. Amorem ipsum dolor sit amet, consectetur adipi scing elit. Cras vitae nibh nisl.
-                  </p>
-                  <h3 class="mb-0 text-white font-weight-bold">
-                    John Smiths <img src="img/5star.png" class="float-right w-25">
-                  </h3>
-                  <h6 class="text-white  font-weight-light">
-                    <small>
-                      CEO - Company
-                    </small>
-                  </h6>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-justify w-100">
-            <div class="card">
-              <div class="row p-8" style="background-color: #212121;">
-                <div class="col-md-5">
-                  <img src="img/people-img.png" alt="" class="w-100">
-                </div>
-                <div class="col-md-7 text-left m-auto">
-                  <img src="img/people-q.jpg" alt="" class="img-fluid">
-                  <p class="text-white font-weight-light">
-                    Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a ijutsnti diam. Amorem ipsum dolor sit amet, consectetur adipi scing elit. Cras vitae nibh nisl.
-                  </p>
-                  <h3 class="mb-0 text-white font-weight-bold">
-                    John Smiths <img src="img/5star.png" class="float-right w-25">
-                  </h3>
-                  <h6 class="text-white  font-weight-light">
-                    <small>
-                      CEO - Company
-                    </small>
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-justify w-100">
-            <div class="card">
-              <div class="row p-8" style="background-color: #212121;">
-                <div class="col-md-5">
-                  <img src="img/people-img.png" alt="" class="w-100">
-                </div>
-                <div class="col-md-7 text-left m-auto">
-                  <img src="img/people-q.jpg" alt="" class="img-fluid">
-                  <p class="text-white font-weight-light">
-                    Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a ijutsnti diam. Amorem ipsum dolor sit amet, consectetur adipi scing elit. Cras vitae nibh nisl.
-                  </p>
-                  <h3 class="mb-0 text-white font-weight-bold">
-                    John Smiths <img src="img/5star.png" class="float-right w-25">
-                  </h3>
-                  <h6 class="text-white  font-weight-light">
-                    <small>
-                      CEO - Company
-                    </small>
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
 
       </div>
     </div>
@@ -472,143 +428,67 @@
         <!-- Slider -->
         <div class="flickity-buttons-bottom-left wow bounceInDown" data-wow-duration="1s" data-flickity='{"prevNextButtons": true,"autoPlay": 1500}'>
 
-          <div class="col-md-4">
-            <img src="img/team-1.png" alt="" class="w-50">
+          <?php $team = mysqli_query($conn, "SELECT * FROM team WHERE status='1'");
+            while ($teamrow = mysqli_fetch_array($team)) { ?>
+ <div class="col-md-4">
+            <img src="<?= 'img/team/' . $teamrow['image']; ?>" alt="" class="w-50">
             <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
+            <?= $teamrow['name']; ?>
             </h3>
             <p class="text-white font-size-xxxs mb-0">
-              Creative Director
+            <?= $teamrow['designation']; ?>
             </p>
             <table class="social m-auto">
               <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
+              <?php if ($contact_info['facebook'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['facebook']; ?>" target="blank">
+                                <i class="fe fe-facebook text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['instagram'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['instagram']; ?>" target="blank">
+                                <i class="fe fe-instagram text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['linkedin'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['linkedin']; ?>" target="blank">
+                                <i class="fe fe-linkedin text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['pinterest'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['pinterest']; ?>" target="blank">
+                                <i class="fab fa-pinterest text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['youtube'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['youtube']; ?>" target="blank">
+                                <i class="fe fe-youtube text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['twitter'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['twitter']; ?>" target="blank">
+                                <i class="fe fe-twitter text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
               </tr>
             </table>
           </div>
 
-          <div class="col-md-4">
-            <img src="img/team-2.png" alt="" class="w-50">
-            <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
-            </h3>
-            <p class="text-white font-size-xxxs mb-0">
-              Creative Director
-            </p>
-            <table class="social m-auto">
-              <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
-              </tr>
-            </table>
-          </div>
 
-          <div class="col-md-4">
-            <img src="img/team-3.png" alt="" class="w-50">
-            <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
-            </h3>
-            <p class="text-white font-size-xxxs mb-0">
-              Creative Director
-            </p>
-            <table class="social m-auto">
-              <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
-              </tr>
-            </table>
-          </div>
+<?php } ?>
 
-          <div class="col-md-4">
-            <img src="img/team-1.png" alt="" class="w-50">
-            <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
-            </h3>
-            <p class="text-white font-size-xxxs mb-0">
-              Creative Director
-            </p>
-            <table class="social m-auto">
-              <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="col-md-4">
-            <img src="img/team-2.png" alt="" class="w-50">
-            <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
-            </h3>
-            <p class="text-white font-size-xxxs mb-0">
-              Creative Director
-            </p>
-            <table class="social m-auto">
-              <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="col-md-4">
-            <img src="img/team-3.png" alt="" class="w-50">
-            <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-              vishwak I
-            </h3>
-            <p class="text-white font-size-xxxs mb-0">
-              Creative Director
-            </p>
-            <table class="social m-auto">
-              <tr>
-                <td>
-                  <i class="fe fe-twitter text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-instagram text-white"></i>
-                </td>
-                <td>
-                  <i class="fe fe-youtube text-white"></i>
-                </td>
-              </tr>
-            </table>
-          </div>
 
 
         </div>
@@ -750,3 +630,23 @@
 </section>
 
 <?php include "footer.php" ?>
+<script>
+        $( document ).ready(function() {
+            setTimeout(function(){ $('.eapps-link').hide(); }, 2000);
+        });
+        $.ajax({
+            url: "https://www.instagram.com/ithinkcreations/?__a=1",
+            type: "get",
+            success:function(res){
+              console.log(res);
+                var obj = res.graphql.user.edge_owner_to_timeline_media.edges;
+                obj.forEach(instagrampost);
+            }
+        });
+        function instagrampost(item, index) {
+            if(index<=11){
+                var post = '<div class="col-2" style="margin-bottom: 15px;"><a href="https://www.instagram.com/p/'+item.node.shortcode+'/" target="_blank"><img class="img-fluid" src="'+item.node.thumbnail_src+'" /></a></div>';
+                $('#instagrampostlist').append(post);
+            }
+        }
+    </script>

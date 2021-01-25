@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-6 col-sm">
 
-          <img src="img/logo.png" alt="" class="w-75 mb-5 wow bounceInLeft" data-wow-delay="0s">
+          <img src="<?=MAINURL;?>img/logo.png" alt="" class="w-75 mb-5 wow bounceInLeft" data-wow-delay="0s">
           <h6 class="text-gray-300 font-weight-light pt-3">
             <small>
               Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cumagnis
@@ -28,7 +28,7 @@
           <!-- Links -->
           <ul class="list-unstyled mb-7 mb-sm-0">
             <li>
-              <a class="color-2" href="index.php">
+              <a class="color-2" href="<?=MAINURL;?>index.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Home
@@ -37,7 +37,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="portfolio.php">
+              <a class="color-2" href="<?=MAINURL;?>portfolio.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Portfolio
@@ -46,7 +46,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="wedding.php">
+              <a class="color-2" href="<?=MAINURL;?>wedding.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Weddings
@@ -55,7 +55,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="birthday-kids.php">
+              <a class="color-2" href="<?=MAINURL;?>birthday-kids.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Birthday
@@ -64,7 +64,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="commercial-photos.php">
+              <a class="color-2" href="<?=MAINURL;?>commercial-photos.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Commercial Photos
@@ -73,7 +73,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="business-videos.php">
+              <a class="color-2" href="<?=MAINURL;?>business-videos.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                      Business Videos
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="presentations.php">
+              <a class="color-2" href="<?=MAINURL;?>presentations.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     In House Projects
@@ -91,7 +91,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="articles.php">
+              <a class="color-2" href="<?=MAINURL;?>articles.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Articles
@@ -100,7 +100,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="#!">
+              <a class="color-2" href="<?=MAINURL;?>blog.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Blog
@@ -109,7 +109,7 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="contact.php">
+              <a class="color-2" href="<?=MAINURL;?>contact.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     Contact Us
@@ -129,7 +129,7 @@
           <!-- Links -->
           <ul class="list-unstyled mb-7 mb-sm-0">
             <li>
-              <a class="color-2" href="about.php">
+              <a class="color-2" href="<?=MAINURL;?>about.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
                     About Us
@@ -239,21 +239,21 @@
 
 <!-- JAVASCRIPT -->
 <!-- Libs JS -->
-<script src="libs/jquery/jquery.3.4.1.min.js"></script>
-<script src="libs/swiper/swiper.min.js"></script>
-<script src="libs/flickity/flickity.pkgd.min.js"></script>
-<script src="libs/flickity/flickity-fade.js"></script>
-<script src="libs/fancybox/jquery.fancybox.min.js"></script>
-<script src="libs/smooth-scroll/smooth-scroll.min.js"></script>
-<script src="libs/simplebar/simplebar.min.js"></script>
-<script src="libs/list.js/list.min.js"></script>
-<script src="libs/jarallax/jarallax.min.js"></script>
-<script src="libs/highlightjs/highlight.pack.min.js"></script>
-<script src="libs/wow/wow.min.js"></script>
+<script src="<?=MAINURL;?>libs/jquery/jquery.3.4.1.min.js"></script>
+<script src="<?=MAINURL;?>libs/swiper/swiper.min.js"></script>
+<script src="<?=MAINURL;?>libs/flickity/flickity.pkgd.min.js"></script>
+<script src="<?=MAINURL;?>libs/flickity/flickity-fade.js"></script>
+<script src="<?=MAINURL;?>libs/fancybox/jquery.fancybox.min.js"></script>
+<script src="<?=MAINURL;?>libs/smooth-scroll/smooth-scroll.min.js"></script>
+<script src="<?=MAINURL;?>libs/simplebar/simplebar.min.js"></script>
+<script src="<?=MAINURL;?>libs/list.js/list.min.js"></script>
+<script src="<?=MAINURL;?>libs/jarallax/jarallax.min.js"></script>
+<script src="<?=MAINURL;?>libs/highlightjs/highlight.pack.min.js"></script>
+<script src="<?=MAINURL;?>libs/wow/wow.min.js"></script>
 
 <!-- Theme JS -->
-<script src="js/dan.min.js"></script>
-<script src="js/script.js"></script>
+<script src="<?=MAINURL;?>js/dan.min.js"></script>
+<script src="<?=MAINURL;?>js/script.js"></script>
 
 
 </body>

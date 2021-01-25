@@ -13,17 +13,17 @@
             <?php $about = mysqli_fetch_array(mysqli_query($conn, "SELECT description from about"));
             $aboutcontent = json_decode($about['description']);
             foreach ($aboutcontent as $key => $value) { ?>
-                <div class="col-12">
-                    <h2 class="mb-7 text-white wow bounceInLeft" data-wow-duration="1s">
-                        <?= stripslashes($key); ?>
-                    </h2>
-                    <blockquote class="blockquote-2 my-7 wow bounceInLeft" data-wow-duration="1s">
-                        <p class="mb-0 text-justify text-white">
-                            <?= stripslashes($value); ?>
-                        </p>
-                    </blockquote>
+            <div class="col-12">
+                <h2 class="mb-7 text-white wow bounceInLeft" data-wow-duration="1s">
+                    <?= stripslashes($key); ?>
+                </h2>
+                <blockquote class="blockquote-2 my-7 wow bounceInLeft" data-wow-duration="1s">
+                    <p class="mb-0 text-justify text-white">
+                        <?= stripslashes($value); ?>
+                    </p>
+                </blockquote>
 
-                </div>
+            </div>
             <?php } ?>
 
         </div>
@@ -40,72 +40,74 @@
             </div>
             <?php $team = mysqli_query($conn, "SELECT * FROM team WHERE status='1'");
             while ($teamrow = mysqli_fetch_array($team)) { ?>
-                <div class="col-6 col-md-4 text-center pt-9 mb-auto">
-                    <a class=" dan-card-22 card justify-content-center bg-cover " href=" # " style="height: 357px;border-radius: 50%; ">
-                        <div class=" card-bg " style="border-radius: 50%;">
-                            <div class=" card-bg-img bg-cover " style=" background-image: url(<?= 'img/team/' . $teamrow['image']; ?>); ">
-                            </div>
+            <div class="col-6 col-md-4 text-center pt-9 mb-auto">
+                <a class=" dan-card-22 card justify-content-center bg-cover " href=" # "
+                    style="height: 357px;border-radius: 50%; ">
+                    <div class=" card-bg " style="border-radius: 50%;">
+                        <div class=" card-bg-img bg-cover "
+                            style=" background-image: url(<?= 'img/team/' . $teamrow['image']; ?>); ">
                         </div>
-                    </a>
-                    <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
-                        <?= $teamrow['name']; ?>
-                    </h3>
-                    <p class="text-white font-size-xxxs mb-0">
-                        <?= $teamrow['designation']; ?>
-                    </p>
-                    <table class="social m-auto">
-                        <tr>
-                            <?php if ($contact_info['facebook'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['facebook']; ?>" target="blank">
-                                        <i class="fe fe-facebook text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                            <?php if ($contact_info['instagram'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['instagram']; ?>" target="blank">
-                                        <i class="fe fe-instagram text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                            <?php if ($contact_info['linkedin'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['linkedin']; ?>" target="blank">
-                                        <i class="fe fe-linkedin text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                            <?php if ($contact_info['pinterest'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['pinterest']; ?>" target="blank">
-                                        <i class="fe fe-pinterest text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                            <?php if ($contact_info['youtube'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['youtube']; ?>" target="blank">
-                                        <i class="fe fe-youtube text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                            <?php if ($contact_info['twitter'] != '') { ?>
-                                <td>
-                                    <a href="<?= $contact_info['twitter']; ?>" target="blank">
-                                        <i class="fe fe-twitter text-white"></i>
-                                    </a>
-                                </td>
-                            <?php } ?>
-                        </tr>
-                    </table>
-                    <p class="text-white mb-0">
-                        <?= $teamrow['description']; ?>
-                    </p>
-                </div>
+                    </div>
+                </a>
+                <h3 class="text-white font-weight-bolder pt-5 mb-0 text-center">
+                    <?= $teamrow['name']; ?>
+                </h3>
+                <p class="text-white font-size-xxxs mb-0">
+                    <?= $teamrow['designation']; ?>
+                </p>
+                <table class="social m-auto">
+                    <tr>
+                        <?php if ($contact_info['facebook'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['facebook']; ?>" target="blank">
+                                <i class="fe fe-facebook text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['instagram'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['instagram']; ?>" target="blank">
+                                <i class="fe fe-instagram text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['linkedin'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['linkedin']; ?>" target="blank">
+                                <i class="fe fe-linkedin text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['pinterest'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['pinterest']; ?>" target="blank">
+                                <i class="fab fa-pinterest text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['youtube'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['youtube']; ?>" target="blank">
+                                <i class="fe fe-youtube text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                        <?php if ($contact_info['twitter'] != '') { ?>
+                        <td>
+                            <a href="<?= $contact_info['twitter']; ?>" target="blank">
+                                <i class="fe fe-twitter text-white"></i>
+                            </a>
+                        </td>
+                        <?php } ?>
+                    </tr>
+                </table>
+                <p class="text-white mb-0">
+                    <?= $teamrow['description']; ?>
+                </p>
+            </div>
 
             <?php } ?>
-            
+
 
         </div>
     </div>
@@ -121,10 +123,11 @@
                 </div>
 
                 <!-- Slider -->
-                <div class="flickity-buttons-bottom-left wow bounceInDown" data-wow-duration="1s" data-flickity='{"prevNextButtons": true,"autoPlay": 1500}'>
-                <?php $testimonial = mysqli_query($conn, "SELECT * FROM testimonial WHERE status='1'");
+                <div class="flickity-buttons-bottom-left wow bounceInDown" data-wow-duration="1s"
+                    data-flickity='{"prevNextButtons": true,"autoPlay": 1500}'>
+                    <?php $testimonial = mysqli_query($conn, "SELECT * FROM testimonial WHERE status='1'");
             while ($testimonialrow = mysqli_fetch_array($testimonial)) { ?>
-           
+
 
                     <div class="text-justify w-100">
                         <div class="card">
@@ -135,14 +138,14 @@
                                 <div class="col-md-7 text-left m-auto">
                                     <img src="img/people-q.jpg" alt="" class="img-fluid">
                                     <p class="text-white font-weight-light">
-                                    <?=$testimonialrow['description'];?>
+                                        <?=$testimonialrow['description'];?>
                                     </p>
                                     <h3 class="mb-0 text-white font-weight-bold">
-                                    <?=$testimonialrow['name'];?>
+                                        <?=$testimonialrow['name'];?>
                                     </h3>
                                     <h6 class="text-white  font-weight-light">
                                         <small>
-                                        <?=$testimonialrow['designation'];?>
+                                            <?=$testimonialrow['designation'];?>
                                         </small>
                                     </h6>
                                 </div>
@@ -150,8 +153,6 @@
                         </div>
                     </div>
                     <?php } ?>
-
-
                 </div>
 
             </div>
@@ -174,14 +175,16 @@
                             $url, $matches);  
                             $durl="https://www.youtube.com/embed/".$matches[0][0];
                             ?>
-                            <div class="col-6 col-md-4 text-center pt-9 mx-auto">
-                <iframe width="100%" height="190" src="<?=$durl;?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col-6 col-md-4 text-center pt-9 mx-auto">
+                <iframe width="100%" height="190" src="<?=$durl;?>" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
             <?php } ?>
 
 
-            
-           
+
+
 
         </div>
     </div>

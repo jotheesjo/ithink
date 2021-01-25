@@ -112,6 +112,37 @@ $desc=mysqli_real_escape_string($conn,$_POST['description']);
       header("Location:add-video-testimonial.php?msg=Failed to create Section");
       exit();
   }
+}elseif(isset($_POST['btn_blog'])){
+  $title=mysqli_real_escape_string($conn,$_POST['title']);
+  $blog=mysqli_real_escape_string($conn,$_POST['blog']);
+  $short_blog=mysqli_real_escape_string($conn,$_POST['short_blog']);
+  $slug=mysqli_real_escape_string($conn,$_POST['slug']);
+  $TotalUploadedFiles=count($_FILES['file_img']['name']);
+      if($_FILES['file_img']['name'][0]!='')
+{
+    for($i = 0; $i < $TotalUploadedFiles; $i++){
+      $filetmp = $_FILES["file_img"]["tmp_name"][$i];
+    $filename = $_FILES["file_img"]["name"][$i];
+    $filetype = $_FILES["file_img"]["type"][$i];
+    $filepath = "../img/blogs/".$filename;
+  $filepath2 = "img/blogs/".$filename;
+  move_uploaded_file($filetmp,$filepath);
+ }
+}else{
+    $filepath2='';
+  }
+   $ins=mysqli_query($conn,"insert into blog(path,status,time,title,blog,shortblog,slug) values('$filepath2','active',NOW(),'$title','$blog','$short_blog','$slug')");
+    if($ins){
+     echo ("<SCRIPT LANGUAGE='JavaScript'>
+   window.location.href='blogs.php?success=Blogs created successfully';
+   </SCRIPT>");  
+   }else{
+     echo ("<SCRIPT LANGUAGE='JavaScript'>
+    window.location.href='blogs.php?success=Error on create blogs';
+    </SCRIPT>");
+   }
+  
+
 }
 
 if(isset($_POST['insert_service'])){
