@@ -34,13 +34,15 @@
                 </li>
                 <li> <a class="waves-effect waves-dark" href="blogs.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Blogs</span></a></li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="mdi mdi-account-network"></i><span class="hide-menu">Services</span></a>
                     <ul aria-expanded="false" class="collapse">
+                        <li> <a class="waves-effect waves-dark" href="services.php" aria-expanded="false"><i
+                                    class="icon-speedometer"></i><span class="hide-menu">Services</span></a></li>
                         <li><a href="service-list.php">Service List<i class="far fa-circle text-primary"></i></a></li>
+                        <li><a href="service-gallery.php">Service Gallery<i class="far fa-circle text-primary"></i></a></li>
                     </ul>
                 </li>
-
                 <li> <a class="waves-effect waves-dark" href="packages.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Packages</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="portfolio.php" aria-expanded="false"><i

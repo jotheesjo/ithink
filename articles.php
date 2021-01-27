@@ -18,16 +18,6 @@
                     </p>
                 </blockquote>
             </div>
-            <div class="col-12">
-                <h2 class="mb-7 text-white wow bounceInLeft" data-wow-duration="1s">
-                    Updates
-                </h2>
-                <blockquote class="blockquote-2 my-7 wow bounceInLeft" data-wow-duration="1s">
-                    <p class="mb-0 text-justify text-white">
-                        We just dont click, we understand the clients requirement, plan the project, create concepts, execute the ideas which will reach the target audience. We make sure the client requirement is 100% fulfilled.
-                    </p>
-                </blockquote>
-            </div>
         </div>
     </div>
 </section>

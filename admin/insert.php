@@ -145,8 +145,32 @@ $desc=mysqli_real_escape_string($conn,$_POST['description']);
 
 }
 
-if(isset($_POST['insert_service_list'])){
-    $ins=mysqli_query($conn,"INSERT INTO services (name,description,status,date) VALUES('$_POST[name]','$_POST[description]',NOW())");
+if(isset($_POST['insert_service'])){
+  if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
+    $file_name = $_FILES['photo']['name'];
+    $file_size =$_FILES['photo']['size'];
+    $file_tmp =$_FILES['photo']['tmp_name'];
+    $file_type=$_FILES['photo']['type'];
+      $tmp_explode=explode('.',$file_name);
+    $file_ext=strtolower(end($tmp_explode));
+    $extensions= array("jpeg","jpg","png");
+  if(in_array($file_ext,$extensions)=== false){
+       header("Location:add-services.php?msg=File type not support");
+      exit();
+    }elseif($file_size > 2097152){
+      header("Location:add-services.php?msg=File size should be lessthan 2MB");
+      exit();
+    }else{
+      $rand=rand(0,1000);
+      $filename="ithink-".$rand.'-'.$file_name;
+      $filepath="../img/services/".$filename;
+       move_uploaded_file($file_tmp,$filepath);
+  }
+  }else{
+      $filename="noimg.png";
+  }
+
+    $ins=mysqli_query($conn,"INSERT INTO services (name,image,description,status,date,slug) VALUES('$_POST[title]','$filename','$_POST[description]','$_POST[status]',NOW(),'$_POST[slug]')");
     if($ins){
         header("Location:add-services.php?msg=Services created successfully");
         exit();
@@ -154,39 +178,19 @@ if(isset($_POST['insert_service_list'])){
         header("Location:add-services.php?msg=Failed to create Services");
         exit();
     }
-}elseif(isset($_POST['insert_process'])){
-    if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
-      $file_name = $_FILES['photo']['name'];
-      $file_size =$_FILES['photo']['size'];
-      $file_tmp =$_FILES['photo']['tmp_name'];
-      $file_type=$_FILES['photo']['type'];
-        $tmp_explode=explode('.',$file_name);
-      $file_ext=strtolower(end($tmp_explode));
-      $extensions= array("jpeg","jpg","png");
-    if(in_array($file_ext,$extensions)=== false){
-         header("Location:add-process.php?msg=File type not support");
-        exit();
-      }elseif($file_size > 2097152){
-        header("Location:add-process.php?msg=File size should be lessthan 2MB");
-        exit();
-      }else{
-        $rand=rand(0,1000);
-        $filename="invicts-".$rand.'-'.$file_name;
-        $filepath="../images/process/".$filename;
-         move_uploaded_file($file_tmp,$filepath);
-    }
-    }else{
-        $filename="noimg.png";
-    }
-    $ins=mysqli_query($conn,"INSERT INTO process (title,description,status,image,date) VALUES('$_POST[title]','$_POST[description]','$_POST[status]','$filename',NOW())");
+}elseif(isset($_POST['insert_service_list'])){
+
+    $ins=mysqli_query($conn,"INSERT INTO service_list (service,type,name,description,date) VALUES('$_POST[service]','$_POST[type]','$_POST[name]','$_POST[description]',NOW())");
     if($ins){
-        header("Location:add-process.php?msg=Process created successfully");
+        header("Location:add-service-list.php?msg=Detail created successfully");
         exit();
     }else{
-        header("Location:add-process.php?msg=Failed to create Process");
+        header("Location:add-service-list.php?msg=Failed to create detail");
         exit();
     }
-}elseif(isset($_POST['insert_portfolio'])){
+}elseif(isset($_POST['insert_service_gallery'])){
+  if(!empty($_FILES)){
+    $type="photo";
     if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
       $file_name = $_FILES['photo']['name'];
       $file_size =$_FILES['photo']['size'];
@@ -196,26 +200,31 @@ if(isset($_POST['insert_service_list'])){
       $file_ext=strtolower(end($tmp_explode));
       $extensions= array("jpeg","jpg","png","webp");
     if(in_array($file_ext,$extensions)=== false){
-         header("Location:add-portfolio.php?msg=File type not support");
+         header("Location:add-service-gallery.php?msg=File type not support");
         exit();
       }elseif($file_size > 2097152){
-        header("Location:add-portfolio.php?msg=File size should be lessthan 2MB");
+        header("Location:add-service-gallery.php?msg=File size should be lessthan 2MB");
         exit();
       }else{
         $rand=rand(0,1000);
-        $filename="invicts-".$rand.'-'.$file_name;
-        $filepath="../images/portfolio/".$filename;
+        $filename="ithink-".$rand.'-'.$file_name;
+        $filepath="../img/gallery/".$filename;
          move_uploaded_file($file_tmp,$filepath);
     }
     }else{
         $filename="noimg.png";
     }
-    $ins=mysqli_query($conn,"INSERT INTO portfolio (title,description,status,image,date,link) VALUES('$_POST[title]','$_POST[description]','$_POST[status]','$filename',NOW(),'$_POST[link]')");
+
+  }else{
+    $type="video";
+    $filename=$_POST['link'];
+  }
+    $ins=mysqli_query($conn,"INSERT INTO service_gallery (serv_id,serv_list_id,type,gallery,date) VALUES('$_POST[service]','$_POST[service_list]','$type','$filename',NOW())");
     if($ins){
-        header("Location:add-portfolio.php?msg=Portfolio created successfully");
+        header("Location:add-service-gallery.php?msg=Gallery created successfully");
         exit();
     }else{
-        header("Location:add-portfolio.php?msg=Failed to create Portfolio");
+        header("Location:add-service-gallery.php?msg=Failed to create Gallery");
         exit();
     }
 }elseif(isset($_POST['insert_package'])){

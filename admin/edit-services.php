@@ -26,14 +26,20 @@ $app_list=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM services WHERE se
                                             <label class="control-label">Title</label>
                                             <input type="hidden" name="service_id" required value="<?=$app_list['service_id'];?>">
                                             <input type="hidden" name="img" required value="<?=$app_list['image'];?>">
-                                            <input type="text" value="<?=$app_list['title'];?>" id="firstName" class="form-control" placeholder="Title" name="title" required>
+                                            <input type="text" value="<?=$app_list['name'];?>" id="firstName" class="form-control" placeholder="Title" name="title" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Slug</label>
+                                            <input type="text" value="<?=$app_list['slug'];?>" id="firstName" class="form-control" placeholder="Slug" name="slug" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Image(270*250)</label>
                                             <input type="file" class="form-control" name="photo" >
-                                            <img src="../images/service/<?=$app_list['image'];?>" style="width:50px"/>
+                                            <img src="../img/services/<?=$app_list['image'];?>" style="width:50px"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

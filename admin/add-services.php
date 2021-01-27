@@ -30,7 +30,7 @@ include("aside.php");
                     <div class="card-body">
                         <form action="insert.php" method="post" enctype="multipart/form-data">
                             <div class="form-body">
-                                <h3 class="card-title">Person Info</h3>
+                                <h3 class="card-title">Service Info</h3>
                                 <?php if(isset($_GET['msg'])){
                         echo '<br/><p style="color:#ff0000">'.$_GET['msg'].'</p>';
                         }?>
@@ -44,7 +44,13 @@ include("aside.php");
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Image(270*250)</label>
+                                            <label class="control-label">Slug</label>
+                                            <input type="text" id="firstName" class="form-control" placeholder="Slug" name="slug" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Image(347*220)</label>
                                             <input type="file" class="form-control" name="photo" required >
                                         </div>
                                     </div>

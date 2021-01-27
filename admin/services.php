@@ -32,7 +32,7 @@ include("aside.php");?>
                                         <thead>
                                             <tr>
                                                 <th>Img</th>
-                                                <th>Title</th>
+                                                <th>Name</th>
                                                 <th>Detail</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -44,8 +44,8 @@ include("aside.php");?>
                                             $service_list=mysqli_query($conn,"SELECT * FROM services");
                                                 while($row=mysqli_fetch_array($service_list)){ ?>
                                                   <tr>
-                                                  <td><img src="../images/service/<?=$row['image'];?>" style="width:50px;"/></td>
-                                                  <td><?=$row['title'];?></td>
+                                                  <td><img src="../img/services/<?=$row['image'];?>" style="width:50px;"/></td>
+                                                  <td><?=$row['name'];?></td>
                                                 <td><?=$row['description'];?></td>
                                                 <td><?php if($row['status']==1){
                                                     echo "Active";

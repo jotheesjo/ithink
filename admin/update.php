@@ -199,15 +199,15 @@ if(isset($_POST['update_service'])){
           exit();
         }else{
           $rand=rand(0,1000);
-          $filename="vendor-".$rand.'-'.$file_name;
-          $filepath="../images/service/".$filename;
+          $filename="ithink-".$rand.'-'.$file_name;
+          $filepath="../img/services/".$filename;
            move_uploaded_file($file_tmp,$filepath);
       }
       }else{
           $filename=$_POST['img'];
       }
       
-      $q=mysqli_query($conn,"UPDATE services SET title ='$_POST[title]',description='$_POST[description]',status ='$_POST[status]',image='$filename' WHERE service_id='$_POST[service_id]'");
+      $q=mysqli_query($conn,"UPDATE services SET name ='$_POST[title]',description='$_POST[description]',status ='$_POST[status]',image='$filename',slug='$_POST[slug]' WHERE service_id='$_POST[service_id]'");
       if($q){
   
           header('Location:services.php?msg=detail updated successfully');
@@ -216,39 +216,17 @@ if(isset($_POST['update_service'])){
           header('Location:services.php?msg=Failed to update detail');
       }
 }
-// update process
-if(isset($_POST['update_process'])){
-  if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
-      $file_name = $_FILES['photo']['name'];
-      $file_size =$_FILES['photo']['size'];
-      $file_tmp =$_FILES['photo']['tmp_name'];
-      $file_type=$_FILES['photo']['type'];
-        $tmp_explode=explode('.',$file_name);
-      $file_ext=strtolower(end($tmp_explode));
-      $extensions= array("jpeg","jpg","png");
-    if(in_array($file_ext,$extensions)=== false){
-         header("Location:process.php?msg=File type not support");
-        exit();
-      }elseif($file_size > 2097152){
-        header("Location:process.php?msg=File size should be lessthan 2MB");
-        exit();
-      }else{
-        $rand=rand(0,1000);
-        $filename="vendor-".$rand.'-'.$file_name;
-        $filepath="../images/process/".$filename;
-         move_uploaded_file($file_tmp,$filepath);
-    }
-    }else{
-        $filename=$_POST['img'];
-    }
+// update service list
+if(isset($_POST['update_service_list'])){
+
     
-    $q=mysqli_query($conn,"UPDATE process SET title ='$_POST[title]',description='$_POST[description]',status ='$_POST[status]',image='$filename' WHERE process_id='$_POST[process_id]'");
+    $q=mysqli_query($conn,"UPDATE service_list SET service ='$_POST[service]',type='$_POST[type]',name ='$_POST[name]',description='$_POST[description]' WHERE service_list_id='$_POST[service_list_id]'");
     if($q){
 
-        header('Location:process.php?msg=detail updated successfully');
+        header('Location:service-list.php?msg=detail updated successfully');
         exit();
     }else{
-        header('Location:process.php?msg=Failed to update detail');
+        header('Location:service-list.php?msg=Failed to update detail');
     }
 }
 // update portfolio
