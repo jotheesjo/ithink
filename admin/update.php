@@ -59,7 +59,7 @@ if(isset($_POST['update_team'])){
         exit();
       }else{
         $rand=rand(0,1000);
-        $filename="invicts-".$rand.'-'.$file_name;
+        $filename="ithink-".$rand.'-'.$file_name;
         $filepath="../img/team/".$filename;
          move_uploaded_file($file_tmp,$filepath);
     }
@@ -126,7 +126,7 @@ if(isset($_POST['update_testimonial'])){
         exit();
       }else{
         $rand=rand(0,1000);
-        $filename="invicts-".$rand.'-'.$file_name;
+        $filename="ithink-".$rand.'-'.$file_name;
         $filepath="../img/testimonial/".$filename;
          move_uploaded_file($file_tmp,$filepath);
     }
@@ -229,70 +229,17 @@ if(isset($_POST['update_service_list'])){
         header('Location:service-list.php?msg=Failed to update detail');
     }
 }
-// update portfolio
-if(isset($_POST['update_portfolio'])){
-  if((isset($_FILES['photo'])) && $_FILES['photo']['name']!=''){
-      $file_name = $_FILES['photo']['name'];
-      $file_size =$_FILES['photo']['size'];
-      $file_tmp =$_FILES['photo']['tmp_name'];
-      $file_type=$_FILES['photo']['type'];
-        $tmp_explode=explode('.',$file_name);
-      $file_ext=strtolower(end($tmp_explode));
-      $extensions= array("jpeg","jpg","png","webp");
-    if(in_array($file_ext,$extensions)=== false){
-         header("Location:portfolio.php?msg=File type not support");
-        exit();
-      }elseif($file_size > 2097152){
-        header("Location:portfolio.php?msg=File size should be lessthan 2MB");
-        exit();
-      }else{
-        $rand=rand(0,1000);
-        $filename="vendor-".$rand.'-'.$file_name;
-        $filepath="../images/portfolio/".$filename;
-         move_uploaded_file($file_tmp,$filepath);
-    }
-    }else{
-        $filename=$_POST['img'];
-    }
-    $q=mysqli_query($conn,"UPDATE portfolio SET title ='$_POST[title]',description='$_POST[description]',status ='$_POST[status]',image='$filename',link ='$_POST[link]' WHERE portfolio_id='$_POST[portfolio_id]'");
-    if($q){
-
-        header('Location:portfolio.php?msg=detail updated successfully');
-        exit();
-    }else{
-        header('Location:portfolio.php?msg=Failed to update detail');
-    }
-}
-
-
-// packages
-if(isset($_POST['update_packages'])){
-  $features=array_combine($_POST['fea_name'], $_POST['featuresstatus']);
-  $feature=json_encode($features);
-  $q=mysqli_query($conn,"UPDATE packages SET title ='$_POST[title]',subtitle='$_POST[subtitle]',status ='$_POST[status]',package_info='$feature' WHERE packages_id='$_POST[packages_id]'");
+// delete_gallery
+if(isset($_POST['delete_gallery'])){
+  $q=mysqli_query($conn,"DELETE FROM service_gallery WHERE id='$_POST[id]'");
   if($q){
 
-      header('Location:packages.php?msg=detail updated successfully');
-      exit();
-  }else{
-      header('Location:packages.php?msg=Failed to update detail');
-  }
+    header('Location:service-gallery.php?msg=detail deleted successfully');
+    exit();
+}else{
+    header('Location:service-gallery.php?msg=Failed to delete detail');
 }
-
-// update_homesec2
-if(isset($_POST['update_homesec2'])){
-  $q=mysqli_query($conn,"UPDATE home_section2 SET title ='$_POST[title]',description='$_POST[description]',status ='$_POST[status]' WHERE home_id='$_POST[home_id]'");
-  if($q){
-
-      header('Location:home-section2.php?msg=detail updated successfully');
-      exit();
-  }else{
-      header('Location:home-section2.php?msg=Failed to update detail');
-  }
 }
-
-
-
 // update_client
 if(isset($_POST['update_client'])){
   $q=mysqli_query($conn,"UPDATE clients set status='$_POST[status]' WHERE id='$_POST[id]'");
@@ -304,38 +251,6 @@ if(isset($_POST['update_client'])){
     header('Location:clients.php?msg=Failed to update detail');
 }
 }
-// delete_client
-if(isset($_POST['delete_client'])){
-  $q=mysqli_query($conn,"DELETE FROM clients WHERE id='$_POST[id]'");
-  if($q){
 
-    header('Location:clients.php?msg=detail deleted successfully');
-    exit();
-}else{
-    header('Location:clients.php?msg=Failed to delete detail');
-}
-}
-// update_slidersection
-if(isset($_POST['update_slidersection'])){
-  $description=mysqli_real_escape_string($conn,$_POST['description']);
-  $q=mysqli_query($conn,"UPDATE slider_section  set link='$_POST[link]',description='$description' WHERE id='1'");
-  if($q){
-    header('Location:slider-section.php?msg=detail deleted successfully');
-    exit();
-}else{
-    header('Location:slider-section.php?msg=Failed to delete detail');
-}
-}
 
-//update title
-
-if(isset($_POST['update_title'])){
-  $q=mysqli_query($conn,"UPDATE title_list  set about='$_POST[about]', portfolio='$_POST[portfolio]', package='$_POST[package]', process='$_POST[process]', service='$_POST[service]', contact='$_POST[contact]' WHERE id='1'");
-  if($q){
-    header('Location:title.php?msg=detail updated successfully');
-    exit();
-}else{
-    header('Location:title.php?msg=Failed to update detail');
-}
-}
 ?>

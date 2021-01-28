@@ -12,7 +12,7 @@ include("aside.php"); ?>
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Home Section 1</h4>
+                <h4 class="text-themecolor">Newsletter</h4>
                 <?php if (isset($_GET['msg'])) {
                     echo '<br/><p style="color:#ff0000">' . $_GET['msg'] . '</p>';
                 } ?>
@@ -23,32 +23,24 @@ include("aside.php"); ?>
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Home Section</h4>
-                        <a class="btn btn-primary" href="add-home-section2.php">Add Section2</a>
+                        <h4 class="card-title">Newsletter</h4>
                         <div class="table-responsive m-t-40">
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                    <th>S.No</th>
+                                    <th>Email</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $service_list = mysqli_query($conn, "SELECT * FROM home_section2");
+                                    $service_list = mysqli_query($conn, "SELECT * FROM newsletter");
+                                    $i=0;
                                     while ($row = mysqli_fetch_array($service_list)) { ?>
                                         <tr>
-                                            <td><?= $row['title']; ?></td>
-                                            <td><?= $row['description']; ?></td>
-                                            <td><?php if ($row['status'] == 1) {
-                                                    echo "Active";
-                                                } else {
-                                                    echo "Inactive";
-                                                } ?></td>
-                                            <td><a href="edit-home-section2.php?id=<?= $row['home_id']; ?>" class="btn waves-effect waves-light btn-primary">Edit</a></td>
+                                            <td><?=$i; ?></td>
+                                            <td><?=$service_list['email']; ?></td>
                                         </tr>
                                     <?php } ?>
 

@@ -3,19 +3,15 @@
     <div class="container">
       <div class="row">
         <div class="col-6 col-sm">
-
+<a href="<?=MAINURL;?>">
           <img src="<?=MAINURL;?>img/logo.png" alt="" class="w-75 mb-5 wow bounceInLeft" data-wow-delay="0s">
+</a>
           <h6 class="text-gray-300 font-weight-light pt-3">
             <small>
-              Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cumagnis
-              dis parturient montes,
+              The Professional Experience of More than 12+ Years in Photography & Film Industry has gained huge knowledge by being as a Dancer, Choreographer, Actor, Director
             </small>
           </h6>
-          <h6 class="text-gray-300 font-weight-light pt-3">
-            <small>
-              Egestas Nibh Bibendum
-            </small>
-          </h6>
+
 
         </div>
         <div class="col-6 col-sm">
@@ -37,69 +33,23 @@
               </a>
             </li>
             <li>
-              <a class="color-2" href="<?=MAINURL;?>portfolio.php">
+            <li>
+              <a class="color-2" href="<?=MAINURL;?>about.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
-                    Portfolio
+                    About Us
                   </small>
                 </h6>
               </a>
             </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>wedding.php">
+              <a class="color-2" href="<?=MAINURL;?>services.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
-                    Weddings
+                    Services
                   </small>
                 </h6>
               </a>
             </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>birthday-kids.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Birthday
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>commercial-photos.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Commercial Photos
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>business-videos.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                     Business Videos
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>presentations.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    In House Projects
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>articles.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Articles
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
               <a class="color-2" href="<?=MAINURL;?>blog.php">
                 <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
@@ -123,47 +73,26 @@
         <div class="col-6 col-sm">
           <!-- Heading -->
           <h4 class="text-white wow bounceInLeft" data-wow-delay=".0s">
-            Navigation
+            Our Services
           </h4>
 
           <!-- Links -->
           <ul class="list-unstyled mb-7 mb-sm-0">
-            <li>
-              <a class="color-2" href="<?=MAINURL;?>about.php">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
+          <?php $senvicemenu=mysqli_query($conn,"SELECT * FROM services");
+                while($senvicemenurow=mysqli_fetch_array($senvicemenu)){ ?>
+                  <li >
+                    <a class="color-2" href="<?=MAINURL.'services/'.$senvicemenurow['slug'];?>">
+                    
+                    <h6 class="text-gray-300 font-weight-light p-0 m-0">
                   <small>
-                    About Us
+                  <?=$senvicemenurow['name'];?>
                   </small>
                 </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="#!">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Privacy Policy
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="#!">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Sitemap
-                  </small>
-                </h6>
-              </a>
-            </li>
-            <li>
-              <a class="color-2" href="#!">
-                <h6 class="text-gray-300 font-weight-light p-0 m-0">
-                  <small>
-                    Help Center
-                  </small>
-                </h6>
-              </a>
-            </li>
+                </a>
+                  </li>
+                  
+                <?php } ?>
+
 
           </ul>
 
@@ -237,6 +166,81 @@
 </footer>
 
 
+          <!--  Get a Quote  Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"> Get a Quote</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                     <form id="quote">
+                          <!-- Email -->
+                          <div class="form-group wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            <label class="" for="contactName">
+                              Your Name *
+                            </label>
+                            <input class="form-control form-control-sm" name="qname" id="contactName" type="text" placeholder="Your Name *" required="required">
+                          </div>
+                
+                          <!-- Email -->
+                          <div class="form-group wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            <label class="" for="contactmobile">
+                             Mobile No *
+                            </label>
+                            <input class="form-control form-control-sm" name="qmobile" id="contactEmail" type="email" placeholder="Your Mobile Number*" required="required">
+                          </div>
+                          
+                          <!-- Email -->
+                          <div class="form-group wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            <label class="" for="contactEmail">
+                              Your Email *
+                            </label>
+                            <input class="form-control form-control-sm" name="qemail" id="contactEmail" type="email" placeholder="Your Email *" required="required">
+                          </div>
+                
+                          <!-- Email -->
+                          <div class="form-group wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            <label class="" for="contactTitle">
+                             Date of Event *
+                            </label>
+                            <input class="form-control form-control-sm" name="qdate"  id="contactTitle" type="date" placeholder="Title *" required="required">
+                          </div>
+                
+                           <!--Email -->
+                          <div class="form-group mb-7 wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            <label class="" for="contactMessage">
+                              Type of Shoot *
+                            </label>
+                                <div class="select">
+                                  <select name="qservice" class="form-control form-control-sm" id="contactMessage" required="required">
+                                    <option selected="" disabled="">Select Type of Shoot</option>
+                                    <option value="Weddings">Weddings </option>
+                                    <option value="Birthday">Birthday </option>
+                                    <option value="Commercial Photos">Commercial Photos </option>
+                                    <option value="Business Videos">Business Videos</option>
+                                    <option value="In House Projects">In House Projects </option>
+                                    <option value="Articles">Articles</option>
+                                  </select>
+                                </div>
+                          </div>
+
+                          <!-- Button -->
+                          <button type="submit" class="btn btn-dark wow bounceInDown animated" data-wow-duration="1s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;">
+                            Send Message
+                          </button>
+                        </form>
+                        <p id="quoteresp"></p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
 <!-- JAVASCRIPT -->
 <!-- Libs JS -->
 <script src="<?=MAINURL;?>libs/jquery/jquery.3.4.1.min.js"></script>
@@ -255,6 +259,24 @@
 <script src="<?=MAINURL;?>js/dan.min.js"></script>
 <script src="<?=MAINURL;?>js/script.js"></script>
 
+
+<script>
+$(function (){
+
+$('#quote').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'ajax.php',
+        data:$('#quote').serialize(),
+        success:function(data){
+            $('#quoteresp').html(data);
+
+        }
+    })
+});
+});
+</script>
 
 </body>
 

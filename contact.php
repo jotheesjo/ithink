@@ -96,14 +96,14 @@
       <div class="col-12 col-md-8">
 
         <!-- Form -->
-        <form>
+        <form id="contact">
 
           <!-- Email -->
           <div class="form-group wow bounceInDown" data-wow-duration="1s">
             <label class="sr-only" for="contactName">
               Your Name *
             </label>
-            <input class="form-control form-control-sm" id="contactName" type="text" placeholder="Your Name *" required>
+            <input class="form-control form-control-sm" id="contactName" type="text" placeholder="Your Name *" name="contactname" required>
           </div>
 
           <!-- Email -->
@@ -111,7 +111,7 @@
             <label class="sr-only" for="contactEmail">
               Your Email *
             </label>
-            <input class="form-control form-control-sm" id="contactEmail" type="email" placeholder="Your Email *" required>
+            <input class="form-control form-control-sm" id="contactEmail" type="email" placeholder="Your Email *" name="contactemail" required>
           </div>
 
           <!-- Email -->
@@ -119,7 +119,7 @@
             <label class="sr-only" for="contactTitle">
               Title *
             </label>
-            <input class="form-control form-control-sm" id="contactTitle" type="text" placeholder="Title *" required>
+            <input class="form-control form-control-sm" id="contactTitle" type="text" placeholder="Title *" name="contacttitle" required>
           </div>
 
           <!-- Email -->
@@ -127,19 +127,37 @@
             <label class="sr-only" for="contactMessage">
               Message *
             </label>
-            <textarea class="form-control form-control-sm" id="contactMessage" rows="5" placeholder="Message *" required></textarea>
+            <textarea class="form-control form-control-sm" id="contactMessage" rows="5" placeholder="Message *" name="contactmessage" required></textarea>
           </div>
 
           <!-- Button -->
-          <button class="btn btn-dark wow bounceInDown" data-wow-duration="1s">
+          <button class="btn btn-dark wow bounceInDown" type="submit" data-wow-duration="1s">
             Send Message
           </button>
 
         </form>
-
+<p id="contactresp" style="color:#fff"></p>
       </div>
     </div>
   </div>
 </section>
 
 <?php include "footer.php" ?>
+
+<script>
+$(function (){
+
+$('#contact').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'ajax.php',
+        data:$('#contact').serialize(),
+        success:function(data){
+            $('#contactresp').html(data);
+
+        }
+    })
+});
+});
+</script>

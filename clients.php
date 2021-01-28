@@ -9,11 +9,14 @@
                 <div class="slider-title wow bounceInLeft text-center" data-wow-duration="1s">
                     Clients<span class="color-3">.</span>
                 </div>
-                <blockquote class="blockquote-2 my-7 wow bounceInLeft" data-wow-duration="1s">
-                    <p class="mb-0 text-justify text-white">
-                        Company has started in 2013 and have completed more than 300+ Projects in South India, We have worked with many start ups and also the big corporates like Suzlon, Samsung and Bosch. We the professional core team with collective experience of more than 60+ years we make sure the project wields the result to our clients.
-                    </p>
-                </blockquote>
+                <div class="row">
+                <?php $clients=mysqli_query($conn,"SELECT * FROM clients WHERE status='1'");
+                while($clientsrow=mysqli_fetch_array($clients)){ ?>
+<div class="col-12 col-sm-3">
+    <img src="<?=MAINURL.'img/clients/'.$clientsrow['path'];?>" class="w-100">
+</div>
+                <?php } ?>
+            </div>
             </div>
         </div>
     </div>

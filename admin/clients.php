@@ -24,7 +24,7 @@ $app_list=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM home_section1 WHE
                                 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Image(781*246)</label>
+                                            <label class="control-label">Image(267*93)</label>
                                             <input type="file" class="form-control" name="photo" >
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@ $app_list=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM home_section1 WHE
                                     $service_list = mysqli_query($conn, "SELECT * FROM clients");
                                     while ($row = mysqli_fetch_array($service_list)) { ?>
                                         <tr>
-                                        <td><img src="../images/clients/<?= $row['path']; ?>" style="width:100px;"/></td>
+                                        <td><img src="../img/clients/<?= $row['path']; ?>" style="width:100px;"/></td>
                                             <td><?php if ($row['status'] == 1) {
                                                     echo "Active";
                                                 } else {

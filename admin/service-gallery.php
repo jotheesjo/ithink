@@ -62,8 +62,33 @@ include("aside.php");?>
                     allowfullscreen></iframe>
                                         <?php } ?>
                                         </td>
-                                        <td><a href="edit-service-list.php?id=<?=$row['service_list_id'];?>"
-                                                class="btn waves-effect waves-light btn-primary">Edit</a></td>
+                                        <td>
+                                        <!-- delete -->
+                                        <div id="responsive-modal2<?=$row['id'];?>" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <form action="update.php" method="post">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">Delete Gallery</h4>
+                                            </div>
+                                            <p> Are you sure you want to delete this content?</p>
+                                            
+                                            <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="id" value="<?=$row['id'];?>">
+                                                    </div>
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger waves-effect waves-light" name="delete_gallery">Yes</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p data-toggle="modal" data-target="#responsive-modal2<?=$row['id'];?>" class="model_img img-responsive btn waves-effect waves-light btn-danger" >Delete</p></td>
                                     </tr>
                                     <?php } ?>
 

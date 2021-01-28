@@ -4,3 +4,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # blog
 RewriteRule ^blog/([^/]+)/?$ blog-detail.php?slug=$1 [NC,L,QSA]
+#services
+RewriteRule ^services/([^/]+)/?$ services.php?slug=$1 [NC,L,QSA]

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Favicons -->
-  <link rel="icon" href="img/favicon.png">
+  <link rel="icon" href="<?=MAINURL;?>img/favicon.png">
   <title>
     IThink Creations
   </title>
@@ -70,27 +70,13 @@
               </a>
               <div class="collapse" id="sidebarBlog" data-parent="#sidebarNav">
                 <ul class="list-styled font-size-lg py-3 mb-0">
+                <?php $senvicemenu=mysqli_query($conn,"SELECT * FROM services");
+                while($senvicemenurow=mysqli_fetch_array($senvicemenu)){ ?>
                   <li class="list-styled-item wow bounceInLeft" data-wow-duration="1s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>wedding.php">Wedding</a>
+                    <a class="list-styled-link text-white" href="<?=MAINURL.'services/'.$senvicemenurow['slug'];?>"><?=$senvicemenurow['name'];?></a>
                   </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.1s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>birthday-kids.php">Birthday & Kids</a>
-                  </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.2s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>commercial-photos.php">Commercial Photos</a>
-                  </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.3s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>business-videos.php">Business Videos</a>
-                  </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.4s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>presentations.php">Presentations</a>
-                  </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.5s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>creatives.php">Creatives</a>
-                  </li>
-                  <li class="list-styled-item wow bounceInLeft" data-wow-duration="1.6s">
-                    <a class="list-styled-link text-white" href="<?=MAINURL;?>articles.php">Articles</a>
-                  </li>
+                  
+                <?php } ?>
                 </ul>
               </div>
             </li>
@@ -108,7 +94,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand animated bounceInLeft fast wow bounceInLeft" data-wow-duration="1s" href="index.php">
+      <a class="navbar-brand animated bounceInLeft fast wow bounceInLeft" data-wow-duration="1s" href="<?=MAINURL;?>">
         <img src="<?=MAINURL;?>img/logo.png" alt="" class="w-100">
       </a>
 
@@ -119,3 +105,7 @@
 
     </div>
   </nav>
+
+  <a href="#!" class="btn button button-3 getaquote lift px-4 py-2" data-toggle="modal" data-target="#exampleModalCenter">
+            Get a Quote
+          </a>

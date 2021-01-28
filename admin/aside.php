@@ -11,7 +11,7 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                <!-- <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="mdi mdi-account-network"></i><span class="hide-menu">Home</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="slider-section.php">Slider<i class="far fa-circle text-primary"></i></a></li>
@@ -19,7 +19,7 @@
                         <li><a href="home-section2.php">Section 2<i class="far fa-circle text-success"></i></a></li>
                         <li><a href="clients.php">Clients <i class="far fa-circle text-info"></i></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li> <a class="waves-effect waves-dark" href="about.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">About</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="team.php" aria-expanded="false"><i
@@ -43,7 +43,11 @@
                         <li><a href="service-gallery.php">Service Gallery<i class="far fa-circle text-primary"></i></a></li>
                     </ul>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="packages.php" aria-expanded="false"><i
+                <li> <a class="waves-effect waves-dark" href="clients.php" aria-expanded="false"><i
+                            class="icon-speedometer"></i><span class="hide-menu">Clients</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="newsletter.php" aria-expanded="false"><i
+                            class="icon-speedometer"></i><span class="hide-menu">Newsletter</span></a></li>
+                <!-- <li> <a class="waves-effect waves-dark" href="packages.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Packages</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="portfolio.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Portfolio</span></a></li>
@@ -52,7 +56,7 @@
                 <li> <a class="waves-effect waves-dark" href="services.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Services</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="title.php" aria-expanded="false"><i
-                            class="icon-speedometer"></i><span class="hide-menu">Titles</span></a></li>
+                            class="icon-speedometer"></i><span class="hide-menu">Titles</span></a></li> -->
                 <li> <a class="waves-effect waves-dark" href="admin-profile.php" aria-expanded="false"><i
                             class="icon-speedometer"></i><span class="hide-menu">Contact</span></a></li>
 

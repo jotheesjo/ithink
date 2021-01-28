@@ -1,161 +1,117 @@
 <?php include "header.php" ?>
-<img src="img/innr-banner.jpg" alt="" class="w-100">
+<img src="<?=MAINURL;?>img/innr-banner.jpg" alt="" class="w-100">
+
+<?php $service=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM services WHERE slug='$_GET[slug]'")); ?>
+
 <section class="bg-2">
     <div class="container pt-10">
-        <div class="row">
-            <div class="col-md-11 m-auto text-center">
-                <div class="slider-title">
-                    Our Services<span class="color-3">.</span>
+<div class="row">
+            <div class="col-12">
+                <div class="slider-title wow bounceInLeft text-center" data-wow-duration="1s">
+                    <?=$service['name'];?><span class="color-3">.</span>
+                    <p><?=$service['description'];?></p>
                 </div>
-                <p class="text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sequi porro quas quam hic unde, pariatur voluptate iure at illum nam, sunt ad quisquam perferendis inventore possimus tenetur cupiditate eum?
-                </p>
+            </div>
+        </div>
+        </div>
+</section>
+<?php $service_list=mysqli_query($conn,"SELECT * FROM service_list WHERE service='$service[service_id]' AND type='photos'"); 
+$service_listcount= mysqli_num_rows($service_list); ?>
+<?php if($service_listcount>0){ ?>
+
+    <section class="bg-2">
+    <div class="container pt-10">
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-title wow bounceInLeft text-center" data-wow-duration="1s">
+                    Photos<span class="color-3">.</span>
+                </div>
             </div>
         </div>
         <div class="row">
-
-            <div class="col-md-4 p-5 m-auto">
-                <a data-fancybox="style" data-src="#style3" href="javascript:;">
-                    <div class="card border wow bounceInUp bg-1" data-wow-duration="1s">
-                        <img class="card-img-top" src="img/people-img.png" alt="...">
-                        <div class="card-body text-center text-dark">
-                            <h3 class=" mb-3 text-white font-weight-bolder wow bounceInLeft" data-wow-duration="1s">
-                                Service 1
-                            </h3>
-                            <p class="text-white text-justify">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sequi porro quas quam hic unde, pariatur . . .
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <div id="style3" style="display: none;width:100%;max-width:100%;height: 100%;">
-                    <button type="button" class="close" data-dismiss="modal"></button> <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="card-img-top mb-3" src="img/people-img.png" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="off" style="font-weight: 900;">
-                                HAIR SALON
-                            </h3>
-                            <h3 class=" mb-3 color-03 font-dancing">
-                                Hair Spa
-                            </h3>
-                            <P class="text-justify">A treatment for hair re-development, hair spa is an answer for some issues identified with hair. It isn't just a treatment for hair re-development, however it additionally takes care of issues like dandruff, balding, unpleasant, and dull hair. Hair spa helps in molding the scalp, courses blood, and gives unwinding.</P>
-                            <P class="text-justify">The master beauticians at QT5 Glenys ensure that what you get is the most ideal answer for all hair issues you have. Spa for molding helps in making the hair follicles more grounded. The principle motivation behind this molding is sustaining the underlying foundations of the hair and advancing hair re-development. The oil discharge of the scalp can be controlled. It rehydrates the scalp without causing dryness of the scalp.</P>
-                            <P class="text-justify">On the off chance that you need to have a decent and sound hair, normalizing the oil discharge of the scalp is significant. Over-discharge of oil can drove your hair to be clingy. Consequently, it is fundamental that parity is kept up. A decent beautician consistently deals with these perspectives.</P>
-                        </div>
-                    </div>
+        <?php while($service_listrow=mysqli_fetch_array($service_list)){ ?>
+            <div class="col-12">
+                <div class="slider-title wow bounceInLeft" data-wow-duration="1s">
+                    <?=$service_listrow['name'];?><span class="color-3">.</span>
                 </div>
             </div>
 
-            <div class="col-md-4 p-5 m-auto">
-                <a data-fancybox="style" data-src="#style3" href="javascript:;">
-                    <div class="card border wow bounceInUp bg-1" data-wow-duration="1s">
-                        <img class="card-img-top" src="img/people-img.png" alt="...">
-                        <div class="card-body text-center text-dark">
-                            <h3 class=" mb-3 text-white font-weight-bolder wow bounceInLeft" data-wow-duration="1s">
-                                Service 1
-                            </h3>
-                            <p class="text-white text-justify">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sequi porro quas quam hic unde, pariatur . . .
-                            </p>
-                        </div>
-                    </div>
+<?php $servicegallery=mysqli_query($conn,"SELECT * FROM service_gallery WHERE serv_list_id='$service_listrow[service_list_id]'");
+$service_gallerycount= mysqli_num_rows($servicegallery); ?>
+
+<?php if($service_gallerycount>0){ ?>
+    <?php while($service_galleryrow=mysqli_fetch_array($servicegallery)){ ?>
+    <div class="col-6 col-md-4 pt-8">
+                <a href="<?=MAINURL;?>img/gallery/<?=$service_galleryrow['gallery'];?>" data-fancybox="gallery">
+                    <img src="<?=MAINURL;?>img/gallery/<?=$service_galleryrow['gallery'];?>" alt="" class="w-100 lift">
                 </a>
-                <div id="style3" style="display: none;width:100%;max-width:100%;height: 100%;">
-                    <button type="button" class="close" data-dismiss="modal"></button> <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="card-img-top mb-3" src="img/people-img.png" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="off" style="font-weight: 900;">
-                                HAIR SALON
-                            </h3>
-                            <h3 class=" mb-3 color-03 font-dancing">
-                                Hair Spa
-                            </h3>
-                            <P class="text-justify">A treatment for hair re-development, hair spa is an answer for some issues identified with hair. It isn't just a treatment for hair re-development, however it additionally takes care of issues like dandruff, balding, unpleasant, and dull hair. Hair spa helps in molding the scalp, courses blood, and gives unwinding.</P>
-                            <P class="text-justify">The master beauticians at QT5 Glenys ensure that what you get is the most ideal answer for all hair issues you have. Spa for molding helps in making the hair follicles more grounded. The principle motivation behind this molding is sustaining the underlying foundations of the hair and advancing hair re-development. The oil discharge of the scalp can be controlled. It rehydrates the scalp without causing dryness of the scalp.</P>
-                            <P class="text-justify">On the off chance that you need to have a decent and sound hair, normalizing the oil discharge of the scalp is significant. Over-discharge of oil can drove your hair to be clingy. Consequently, it is fundamental that parity is kept up. A decent beautician consistently deals with these perspectives.</P>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <div class="col-md-4 p-5 m-auto">
-                <a data-fancybox="style" data-src="#style3" href="javascript:;">
-                    <div class="card border wow bounceInUp bg-1" data-wow-duration="1s">
-                        <img class="card-img-top" src="img/people-img.png" alt="...">
-                        <div class="card-body text-center text-dark">
-                            <h3 class=" mb-3 text-white font-weight-bolder wow bounceInLeft" data-wow-duration="1s">
-                                Service 1
-                            </h3>
-                            <p class="text-white text-justify">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sequi porro quas quam hic unde, pariatur . . .
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <div id="style3" style="display: none;width:100%;max-width:100%;height: 100%;">
-                    <button type="button" class="close" data-dismiss="modal"></button> <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="card-img-top mb-3" src="img/people-img.png" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="off" style="font-weight: 900;">
-                                HAIR SALON
-                            </h3>
-                            <h3 class=" mb-3 color-03 font-dancing">
-                                Hair Spa
-                            </h3>
-                            <P class="text-justify">A treatment for hair re-development, hair spa is an answer for some issues identified with hair. It isn't just a treatment for hair re-development, however it additionally takes care of issues like dandruff, balding, unpleasant, and dull hair. Hair spa helps in molding the scalp, courses blood, and gives unwinding.</P>
-                            <P class="text-justify">The master beauticians at QT5 Glenys ensure that what you get is the most ideal answer for all hair issues you have. Spa for molding helps in making the hair follicles more grounded. The principle motivation behind this molding is sustaining the underlying foundations of the hair and advancing hair re-development. The oil discharge of the scalp can be controlled. It rehydrates the scalp without causing dryness of the scalp.</P>
-                            <P class="text-justify">On the off chance that you need to have a decent and sound hair, normalizing the oil discharge of the scalp is significant. Over-discharge of oil can drove your hair to be clingy. Consequently, it is fundamental that parity is kept up. A decent beautician consistently deals with these perspectives.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <?php } 
+}else{ ?>
+    <div class="col-12"><h3 style="color:#fff;">Innovation under process</h3></div>
+        
+    <?php } ?>
 
-            <div class="col-md-4 p-5 m-auto">
-                <a data-fancybox="style" data-src="#style3" href="javascript:;">
-                    <div class="card border wow bounceInUp bg-1" data-wow-duration="1s">
-                        <img class="card-img-top" src="img/people-img.png" alt="...">
-                        <div class="card-body text-center text-dark">
-                            <h3 class=" mb-3 text-white font-weight-bolder wow bounceInLeft" data-wow-duration="1s">
-                                Service 1
-                            </h3>
-                            <p class="text-white text-justify">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus sequi porro quas quam hic unde, pariatur . . .
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <div id="style3" style="display: none;width:100%;max-width:100%;height: 100%;">
-                    <button type="button" class="close" data-dismiss="modal"></button> <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="card-img-top mb-3" src="img/people-img.png" alt="...">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="off" style="font-weight: 900;">
-                                HAIR SALON
-                            </h3>
-                            <h3 class=" mb-3 color-03 font-dancing">
-                                Hair Spa
-                            </h3>
-                            <P class="text-justify">A treatment for hair re-development, hair spa is an answer for some issues identified with hair. It isn't just a treatment for hair re-development, however it additionally takes care of issues like dandruff, balding, unpleasant, and dull hair. Hair spa helps in molding the scalp, courses blood, and gives unwinding.</P>
-                            <P class="text-justify">The master beauticians at QT5 Glenys ensure that what you get is the most ideal answer for all hair issues you have. Spa for molding helps in making the hair follicles more grounded. The principle motivation behind this molding is sustaining the underlying foundations of the hair and advancing hair re-development. The oil discharge of the scalp can be controlled. It rehydrates the scalp without causing dryness of the scalp.</P>
-                            <P class="text-justify">On the off chance that you need to have a decent and sound hair, normalizing the oil discharge of the scalp is significant. Over-discharge of oil can drove your hair to be clingy. Consequently, it is fundamental that parity is kept up. A decent beautician consistently deals with these perspectives.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <?php } ?>
+            
         </div>
+
+
     </div>
 </section>
 
+<?php } ?>
+
+
+<?php $service_list=mysqli_query($conn,"SELECT * FROM service_list WHERE service='$service[service_id]' AND type='videos'"); 
+$service_listcount= mysqli_num_rows($service_list); ?>
+<?php if($service_listcount>0){ ?>
+
+    <section class="bg-2">
+    <div class="container pt-10">
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-title wow bounceInLeft text-center" data-wow-duration="1s">
+                    Videos<span class="color-3">.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <?php while($service_listrow=mysqli_fetch_array($service_list)){ ?>
+            <div class="col-12">
+                <div class="slider-title wow bounceInLeft" data-wow-duration="1s">
+                    <?=$service_listrow['name'];?><span class="color-3">.</span>
+                </div>
+            </div>
+
+<?php $servicegallery=mysqli_query($conn,"SELECT * FROM service_gallery WHERE serv_list_id='$service_listrow[service_list_id]'");
+$service_gallerycount= mysqli_num_rows($servicegallery); ?>
+
+<?php if($service_gallerycount>0){ ?>
+    <?php while($service_galleryrow=mysqli_fetch_array($servicegallery)){ 
+         $url =$service_galleryrow['gallery'];
+         preg_match_all("#(?<=v=|v\/|vi=|vi\/|youtu.be\/)[a-zA-Z0-9_-]{11}#", 
+                     $url, $matches);  
+                     $durl="https://www.youtube.com/embed/".$matches[0][0];
+                     ?>
+        <div class="col-6 col-md-4 text-center pt-9 mx-auto">
+                <iframe width="100%" height="190" src="<?=$durl;?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+    <?php } 
+}else{ ?>
+    <div class="col-12"><h3 style="color:#fff;">Innovation under process</h3></div>
+        
+    <?php } ?>
+
+        <?php } ?>
+            
+        </div>
+
+
+    </div>
+</section>
+
+<?php } ?>
 <?php include "footer.php" ?>
